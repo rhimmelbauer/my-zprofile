@@ -1,8 +1,4 @@
 echo "Happy Programming Rob :)"
-export PYCURL_SSL_LIBRARY=openssl 
-export LDFLAGS="-L/usr/local/opt/openssl/lib" 
-export CPPFLAGS="-I/usr/local/opt/openssl/include" 
-export PATH=/Applications/Postgres.app/Contents/Versions/13/bin:$PATH
 
 mkve() { 
     echo "Creating Python 3 Environment: $1 "; 
@@ -65,7 +61,7 @@ sqs-ls () {
     aws sqs list-queues
 }
 
-gc () {
+g-c () {
     git commit -m $1
 }
 
@@ -73,11 +69,11 @@ gc-a () {
     git commit -a -m $1
 }
 
-ga () {
+g-a () {
     git add .
 }
 
-gs () {
+g-s () {
     git status
 }
 
@@ -85,7 +81,7 @@ vs-s () {
     source ../.env
 }
 
-gpu () {
+g-pu () {
     git push -u origin $1
 }
 
