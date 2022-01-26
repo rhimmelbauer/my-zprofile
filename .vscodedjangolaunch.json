@@ -1,0 +1,107 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File (Integrated Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Runserver",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true,
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env" //remove export before each line
+        },
+        {
+            "name": "Django Shell",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "shell",
+            ],
+            "django": true,
+            "envFile": "${workspaceFolder}/.env" //remove export before each line
+        },
+        {
+            "name": "Celery",
+            "type": "python",
+            "request": "launch",
+            "module": "celery",
+            "console": "integratedTerminal",
+            "args": [
+                "-A",
+                "<django-projec-name>",
+                "worker",
+                "-B",
+                "-l",
+                "info"
+            ],
+        },
+        {
+            "name": "Migrate",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "migrate"            ],
+            "django": true
+        },
+        {
+            "name": "Create Maintenance Sites",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "maintenance"
+            ],
+            "django": true
+        },
+        {
+            "name": "Tests",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "test",
+                "--no-input"
+            ],
+            "django": true
+        },
+        {
+            "name": "Test Sandbox",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "test", 
+                "quizzing.tests",
+                "--no-input",
+                "&&",
+                "say", 
+                "dingdingdingdingding"
+            ],
+            "django": true,
+            "justMyCode": false,
+            "envFile": "${workspaceFolder}/.env" //remove export before each line
+        }
+    ]
+}
