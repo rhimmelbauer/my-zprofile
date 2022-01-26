@@ -1,0 +1,90 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File (Integrated Terminal)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Runserver",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true,
+            "justMyCode": false
+        },
+        {
+            "name": "Celery",
+            "type": "python",
+            "request": "launch",
+            "module": "celery",
+            "console": "integratedTerminal",
+            "args": [
+                "-A",
+                "<django-projec-name>",
+                "worker",
+                "-B",
+                "-l",
+                "info"
+            ]
+        },
+        {
+            "name": "Migrate",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "migrate"            ],
+            "django": true
+        },
+        {
+            "name": "Mgmt Cmd",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "collectstatic"
+            ],
+            "django": true
+        },
+        {
+            "name": "Tests",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "test",
+                "--no-input"
+            ],
+            "django": true
+        },
+        {
+            "name": "Test Sandbox",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
+            "console": "integratedTerminal",
+            "args": [
+                "test", 
+                "<django-app>",
+                "--no-input",
+                "&&",
+                "say", 
+                "dingdingdingdingding"
+            ],
+            "django": true,
+            "justMyCode": false
+        }
+    ]
+}
