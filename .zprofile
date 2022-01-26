@@ -1,4 +1,4 @@
-echo "Happy Programming Rob :)"
+echo "Himmelbauer"
 
 mkve() { 
     echo "Creating Python 3 Environment: $1 "; 
@@ -118,25 +118,36 @@ se-f () {
 }
 
 d-m () {
-    python manage.py migrate
+    ./manage.py migrate
 }
 
 d-mm () {
-    python manage.py makemigrations
+    ./manage.py makemigrations
 }
 
 d-r () {
-    python manage.py runserver
+    ./manage.py runserver
 }
 
 d-cr () {
-    python manage.py collectreact
+    ./manage.py collectreact
 }
 
 d-c () {
-    python manage.py collectstatic
+    ./manage.py collectstatic --noinput
 }
 
+pip-ir () {
+    pip install -r requirements.txt
+}
+
+pip-is () {
+    pip install -e .
+}
+
+pip-idev () {
+    pip install -e .'[dev]'
+}
 
 pgrestore () {
     pg_restore -v -d $1 --no-acl --no-owner --role=$2 "$3"
@@ -156,12 +167,12 @@ tc-truncate-tables () {
 }
 
 tc-loaddata () {
-    ./manage.py loaddata site group permafrost headless_settings flatpages locality core/fixtures/user.json user_profile emails inventory location category tag collection container siteconfiguration siteconfigs catalog step path program product offering journey enrollment reactappsettings
+    ./manage.py loaddata site group permafrost headless_settings flatpages locality core/fixtures/user.json user_profile emails inventory location category tag collection container siteconfiguration siteconfigs catalog step path program product offering journey enrollment quizzing reactappsettings
 }
 
 tc-scratch-prod() {
     pgsql-flush-db trainingcamp;
-    pgrestore trainingcamp django ~/Downloads/heroku_prod_2021-12-14_10-30am.sql;
+    pgrestore trainingcamp django ~/Downloads/heroku_prod_1-21-2022_6_20pm.sql;
     d-m;
     ./manage.py fixdata --verbosity 1
 }
@@ -170,5 +181,7 @@ tc-scratch-dev() {
     pgsql-flush-db trainingcamp;
     d-m;
     tc-loaddata;
+    d-cr;
+    d-c;
     ./manage.py fixdata --verbosity 1 
 }
