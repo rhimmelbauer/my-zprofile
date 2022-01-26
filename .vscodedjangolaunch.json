@@ -1,7 +1,4 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -22,20 +19,7 @@
                 "--noreload"
             ],
             "django": true,
-            "justMyCode": false,
-            "envFile": "${workspaceFolder}/.env" //remove export before each line
-        },
-        {
-            "name": "Django Shell",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/<django-projec-name>/manage.py",
-            "console": "integratedTerminal",
-            "args": [
-                "shell",
-            ],
-            "django": true,
-            "envFile": "${workspaceFolder}/.env" //remove export before each line
+            "justMyCode": false
         },
         {
             "name": "Celery",
@@ -50,7 +34,7 @@
                 "-B",
                 "-l",
                 "info"
-            ],
+            ]
         },
         {
             "name": "Migrate",
@@ -63,13 +47,13 @@
             "django": true
         },
         {
-            "name": "Create Maintenance Sites",
+            "name": "Mgmt Cmd",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/<django-projec-name>/manage.py",
             "console": "integratedTerminal",
             "args": [
-                "maintenance"
+                "collectstatic"
             ],
             "django": true
         },
@@ -93,15 +77,14 @@
             "console": "integratedTerminal",
             "args": [
                 "test", 
-                "quizzing.tests",
+                "<django-app>",
                 "--no-input",
                 "&&",
                 "say", 
                 "dingdingdingdingding"
             ],
             "django": true,
-            "justMyCode": false,
-            "envFile": "${workspaceFolder}/.env" //remove export before each line
+            "justMyCode": false
         }
     ]
 }
