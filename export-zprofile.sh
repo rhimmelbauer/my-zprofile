@@ -1,0 +1,1 @@
+cat .zprofile >> ~/.zprofile
