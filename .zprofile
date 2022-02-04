@@ -117,6 +117,12 @@ se-f () {
     source $1
 }
 
+drm () {
+    deactivate;
+    rm -rf venv;
+    mkve venv;
+}
+
 d-m () {
     ./manage.py migrate
 }
@@ -137,11 +143,19 @@ d-c () {
     ./manage.py collectstatic --noinput
 }
 
+d-t () {
+    ./manag.py test
+}
+
+d-ta () {
+    ./manage.py test $1
+}
+
 pip-ir () {
     pip install -r requirements.txt
 }
 
-pip-is () {
+pip-ie () {
     pip install -e .
 }
 
@@ -185,3 +199,13 @@ tc-scratch-dev() {
     d-c;
     ./manage.py fixdata --verbosity 1 
 }
+
+tc-pip () {
+    cp ~/.config/pip/pip_edit.conf venv/pip.conf
+}
+
+tc-drm () {
+    drm;
+    tc-pip;
+}
+
